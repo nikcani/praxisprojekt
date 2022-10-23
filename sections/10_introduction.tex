@@ -17,17 +17,20 @@ Um den Umfang der Software möglichst effizient umzusetzen, soll der Einsatz ein
 Dabei ist zu prüfen, an welchen Stellen das zu erprobende Framework \enquote{Laravel Nova}\cite{laravel-nova} bei der Erstellung der Software hilfreich ist und welche Einschränkungen sich durch die Verwendung ergeben.
 
 \subsection{Problemraum und Anforderungen}
-Der Flug einer Radiosonde benötigt immer eine Bodenstation, die den Start einleitet und die Messdaten empfängt.
-Auf den Bodenstationen läuft unter Windows die Software GRAWMET, welche die Daten der Sonde empfängt, weiterverarbeitet und auswertet.
-Um vergangene Flüge auszuwerten und zu überwachen ist daher immer der Zugang zum Bodenstationscomputer notwendig, eine zentrale und einfache Auswertung mehrerer Stationen ist aktuell kaum möglich.
+Für den Empfang von Messdaten und die korrekte Startvorbereitung benötigt eine Radiosonde von GRAW auch immer eine Bodenstation.
+Auf Bodenstationen läuft unter Windows die Software \enquote{GRAWMET}\cite{grawmet}, welche die Daten der Sonde empfängt, weiterverarbeitet und auswertet.
+Um vergangene Flüge auszuwerten und zu überwachen ist daher immer der Zugang zum Bodenstationscomputer notwendig, eine zentrale und einfache Auswertung mehrerer Stationen durch Nutzer an verschiedenen Orten mit verschiedenen Endgeräten ist aktuell kaum möglich.
+Es gibt zwar bereits die Anwendung \enquote{GRAWgo}\cite{grawgo}, welche aufgrund ihrer Architektur kein On-Premises Hosting unterstützt und nur auf Mobilgeräten lauffähig ist.
+GRAWgo hat es, vermutlich aufgrund seiner sehr eingeschränkten Nutzbarkeit, bisher nicht in einen produktiven Betrieb im Bereich von größeren Messnetzen geschafft und war auch nie wirklich auf diesen ausgelegt.
 
 Dieses Problem soll durch eine neue Architektur bzw.\ eine ergänzende Software namens \enquote{Sounding Console} gelöst werden.
 Der Zugang zu den erfassten Daten und Auswertungen soll vereinfacht werden und von verschiedenen Orten aus möglich sein.
 An dieser Problemstelle setzt die Sounding Console an und soll, die sich daraus ergebenden Anforderungen, sowie weitere Anforderungen, erfüllen:
 \begin{itemize}
-    \item Die Software muss auf einer zentralen Instanz gehostet werden, dies muss sowohl in der Cloud als auch On-Premises möglich sein.
+    \item Die Software muss auf einer zentralen Instanz gehostet werden, dies muss sowohl auf zentralen Servern als auch On-Premises möglich sein.
     \item Administratoren müssen Nutzern den Zugriff ermöglichen können und dabei unterschiedlichen Rollen unterschiedliche Rechte zuweisen.
     \item Das System muss mehrere Stationen verwalten können, auf die teilweise alle und teilweise nur manche Nutzer Zugriff haben dürfen.
+    \item Die Sounding Console soll gegenüber GRAWgo eine besser Zugänglichkeit und UX aufweisen, insbesondere die Nutzung an einem Desktop Computer soll ermöglicht werden.
     \item Die Flugdaten müssen via Schnittstelle von mehreren Bodenstationen gleichzeitig empfangen werden können.
     \item Die Kommunikation mit Bodenstationen muss in Echtzeit funktionieren.
     \item Es sollen auch Flüge und deren Messdaten aus bestehenden Archiven importiert werden können.

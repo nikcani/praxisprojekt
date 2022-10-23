@@ -21,27 +21,30 @@ Für den Empfang von Messdaten und die korrekte Startvorbereitung benötigt eine
 Auf Bodenstationen läuft unter Windows die Software \enquote{GRAWMET}\cite{grawmet}, welche die Daten der Sonde empfängt, weiterverarbeitet und auswertet.
 Um vergangene Flüge auszuwerten und zu überwachen ist daher immer der Zugang zum Bodenstationscomputer notwendig.
 Eine zentrale und einfache Auswertung mehrerer Stationen durch Nutzer an verschiedenen Orten mit verschiedenen Endgeräten ist aktuell kaum möglich.
-Es gibt zwar bereits die Anwendung \enquote{GRAWgo}\cite{grawgo}, welche aufgrund ihrer Architektur kein On-Premises Hosting unterstützt und nur auf Mobilgeräten lauffähig ist.
-GRAWgo hat es, vermutlich aufgrund seiner sehr eingeschränkten Nutzbarkeit, bisher nicht in einen produktiven Betrieb im Bereich von größeren Messnetzen geschafft und war auch nie wirklich auf diesen ausgelegt.
+Es gibt für diese Anforderungen bereits eine experimentelle Anwendung \enquote{GRAWgo}\cite{grawgo}, welche aufgrund ihrer Architektur kein On-Premises Hosting unterstützt und nur auf Mobilgeräten lauffähig ist.
+GRAWgo hat es, vermutlich aufgrund seiner sehr eingeschränkten Nutzbarkeit, bisher nicht in einen produktiven Betrieb im Bereich von größeren Messnetzen geschafft und ist dafür auch aktuell nicht konzipiert.
 
-Dieses Problem soll durch eine neue Architektur bzw.\ eine ergänzende Software namens \enquote{Sounding Console} gelöst werden.
+Diese Probleme soll durch eine neue Architektur, bzw.\ eine ergänzende Software namens \enquote{Sounding Console}, gelöst werden.
 Der Zugang zu den erfassten Daten und Auswertungen soll vereinfacht werden und von verschiedenen Orten aus möglich sein.
-An dieser Problemstelle setzt die Sounding Console an und soll, die sich daraus ergebenden Anforderungen, sowie weitere Anforderungen, erfüllen:
+An dieser Problemstelle setzt die Sounding Console an und soll die sich daraus ergebenden Anforderungen erfüllen.
+
+Im folgenden sind die Anforderungen gelistet, die die neue Software erfüllen soll.
+Eine Ausführlichere Darstellung findet sich im Lastenheft im Anhang dieser Arbeit.
 \begin{itemize}
     \item Die Software muss auf einer zentralen Instanz gehostet werden, dies muss sowohl auf zentralen Servern als auch On-Premises möglich sein.
-    \item Administratoren müssen Nutzern den Zugriff ermöglichen können und dabei unterschiedlichen Rollen unterschiedliche Rechte zuweisen.
-    \item Das System muss mehrere Stationen verwalten können, auf die teilweise alle und teilweise nur manche Nutzer Zugriff haben dürfen.
-    \item Die Sounding Console soll gegenüber GRAWgo eine besser Zugänglichkeit und UX aufweisen, insbesondere die Nutzung an einem Desktop Computer soll ermöglicht werden.
-    \item Die Flugdaten müssen via Schnittstelle von mehreren Bodenstationen gleichzeitig empfangen werden können.
+    \item Administratoren müssen Nutzern den Zugriff ermöglichen können und diesen durch eine Rollenzuweisung mit unterschiedlichen Zugriffsrechten weiter einschränken können.
+    \item Im System müssen mehrere Stationen verwaltet werden können, deren Sichtbarkeit muss auf spezifische Nutzer eingeschränkt werden können.
+    \item Die Sounding Console soll gegenüber GRAWgo eine bessere Zugänglichkeit und UX aufweisen, insbesondere die Nutzung an einem Desktop Computer soll ermöglicht werden.
+    \item Die Flugdaten müssen via Schnittstelle, von mehreren Bodenstationen gleichzeitig, empfangen werden können.
     \item Die Kommunikation mit Bodenstationen muss in Echtzeit funktionieren.
-    \item Es sollen auch Flüge und deren Messdaten aus bestehenden Archiven importiert werden können.
-    \item Eine sprachliche Internationalisierung muss durch die Erstellung von Sprachdateien möglich sein.
-    \item Es müssen eindimensionale Performancekriterien je Flug berechnet und anzeigt werden können.
-    \item Die Performance einer Station soll mittels durchschnittlicher Performancekriterien aus vergangenen Flügen in unterschiedlichen Zeitabschnitten einsehbar sein.
+    \item Es sollen Flüge und deren Messdaten, aus bestehenden Archiven, importiert werden können.
+    \item Eine sprachliche Internationalisierung muss, durch die Erstellung und Einbindung neuer Sprachdateien, effizient möglich sein.
+    \item Je Flug, müssen eindimensionale Performancekriterien berechnet und anzeigt werden können.
+    \item Die Performance einer Station soll, mittels durchschnittlicher Performancekriterien aus vergangenen Flügen, in unterschiedlichen Zeitabschnitten, einsehbar sein.
     \item Flugdaten sollen in Echtzeit verfolgt werden können und müssen im Nachhinein ausgewertet werden können.
-    \item Es soll eine Kartendarstellung von einem oder mehreren Flügen geben.\ Dafür soll der Einsatz eines Open Source Projektes geprüft werden.
-    \item Alle Messdaten müssen je Flug tabellarisch dargestellt werden.
-    \item Einige Messdaten müssen je Flug in zweidimensionalen Liniendiagrammen gegenüber Zeit/Höhe/Luftdruck dargestellt werden.
+    \item Es soll eine Kartendarstellung von einem oder mehreren Flügen geben.\ Dafür soll der Einsatz eines Open Source Projektes\cite{sondehub-tracker} geprüft werden.
+    \item Für einen Flug müssen Messdaten tabellarisch dargestellt werden können.
+    \item Einige Messdaten müssen, je Flug, in zweidimensionalen Liniendiagrammen, gegenüber Zeit/Höhe/Luftdruck, dargestellt werden können.
     \item Es soll geprüft werden, ob mit überschaubarem Aufwand, thermodynamische Diagramme dargestellt werden können.
 \end{itemize}
 
@@ -51,8 +54,8 @@ Aus Entwicklungssicht ergibt sich die konkrete Forschungsfrage:
 
 Aus dieser Kernfrage lassen sich weitere Forschungsfragen ableiten:
 \begin{itemize}
-    \item Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?
-    \item Welche Anforderungen der Sounding Console lassen sich durch das Nova besonders gut entwickeln?
+    \item Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen, oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?
+    \item Welche Anforderungen der Sounding Console lassen sich durch Nova besonders gut entwickeln?
     \item Bei welchen Anforderungen entstehen Nachteile durch die Verwendung von Nova?
     \item Lässt sich abschätzen, ob zukünftige Erweiterungen gut mit Nova umsetzbar sind?
     \item Können am vorliegenden Beispiel Muster erkannt werden, welche Anforderungsbereiche betroffen sind, um auf Basis dessen zukünftige Projektentscheidungen zu treffen.

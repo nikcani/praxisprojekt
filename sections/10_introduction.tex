@@ -3,8 +3,54 @@
 
 \section{Einleitung}
 
-\subsection{Motivation}
+\subsection{Motivation und Projektstruktur}
+Das Praxisprojekt findet in enger Kooperation mit der Digitalagentur \enquote{Kiwis \& Brownies - Christian Kiewaldt \& Benjamin Braun GbR}\cite{kiwis}, sowie dem Auftraggeber des Projektes, der \enquote{GRAW Radiosondes GmbH \& Co. KG}\cite{graw}, statt.
 
-\subsection{Projektstruktur und Anforderungen}
+GRAW Radiosondes stellt meteorologische Messinstrumente her, vor allem Radiosonden, die getragen von einem Wetterballon bis in Höhen der Stratosphäre aufsteigen und während des Fluges verschiedene Messdaten sammeln.
+Das Ziel dieser Arbeit seitens GRAW ist die Erprobung und Entwicklung einer Managementsoftware, mit dessen Hilfe Stationen, deren Flüge und wiederum deren Messdaten, archiviert, verwaltet und ausgewertet werden können.
 
-\subsection{Forschungsfrage}
+Bisherige individuelle Projekte des Auftragnehmers Kiwis \& Brownies zeigten, laut Gesprächen mit Management und Entwicklern, einen anfänglich großen und repetitiven Aufwand bei der Erstellung individueller Verwaltungssoftware auf.
+Fast alle Projekte benötigen einen Login, die Verwaltung von Entitäten in einem sogenannten \enquote{CRUD}\cite{crud} Interface, verschiedene Auswertungen, sowie spezielle Abläufe für eine oder mehrere Entitäten.
+
+Diese Arbeit soll einen ersten lauffähigen, sowie produktiv nutzbaren Prototypen der Software entwerfen und implementieren.
+Um den Umfang der Software möglichst effizient umzusetzen, soll der Einsatz eines unterstützenden Frameworks erprobt werden, welches ein Grundgerüst stellt und einige wiederkehrende Funktionen schneller konfigurierbar macht und insgesamt auch für eine einheitliche Software sorgt.
+Dabei ist zu prüfen, an welchen Stellen das zu erprobende Framework \enquote{Laravel Nova}\cite{laravel-nova} bei der Erstellung der Software hilfreich ist und welche Einschränkungen sich durch die Verwendung ergeben.
+
+\subsection{Problemraum und Anforderungen}
+Der Flug einer Radiosonde benötigt immer eine Bodenstation, die den Start einleitet und die Messdaten empfängt.
+Auf den Bodenstationen läuft unter Windows die Software GRAWMET, welche die Daten der Sonde empfängt, weiterverarbeitet und auswertet.
+Um vergangene Flüge auszuwerten und zu überwachen ist daher immer der Zugang zum Bodenstationscomputer notwendig, eine zentrale und einfache Auswertung mehrerer Stationen ist aktuell kaum möglich.
+
+Dieses Problem soll durch eine neue Architektur bzw.\ eine ergänzende Software namens \enquote{Sounding Console} gelöst werden.
+Der Zugang zu den erfassten Daten und Auswertungen soll vereinfacht werden und von verschiedenen Orten aus möglich sein.
+An dieser Problemstelle setzt die Sounding Console an und soll, die sich daraus ergebenden Anforderungen, sowie weitere Anforderungen, erfüllen:
+\begin{itemize}
+    \item Die Software muss auf einer zentralen Instanz gehostet werden, dies muss sowohl in der Cloud als auch On-Premises möglich sein.
+    \item Administratoren müssen Nutzern den Zugriff ermöglichen können und dabei unterschiedlichen Rollen unterschiedliche Rechte zuweisen.
+    \item Das System muss mehrere Stationen verwalten können, auf die teilweise alle und teilweise nur manche Nutzer Zugriff haben dürfen.
+    \item Die Flugdaten müssen via Schnittstelle von mehreren Bodenstationen gleichzeitig empfangen werden können.
+    \item Die Kommunikation mit Bodenstationen muss in Echtzeit funktionieren.
+    \item Es sollen auch Flüge und deren Messdaten aus bestehenden Archiven importiert werden können.
+    \item Eine sprachliche Internationalisierung muss durch die Erstellung von Sprachdateien möglich sein.
+    \item Es müssen eindimensionale Performancekriterien je Flug berechnet und anzeigt werden können.
+    \item Die Performance einer Station soll mittels durchschnittlicher Performancekriterien aus vergangenen Flügen in unterschiedlichen Zeitabschnitten einsehbar sein.
+    \item Flugdaten sollen in Echtzeit verfolgt werden können und müssen im Nachhinein ausgewertet werden können.
+    \item Es soll eine Kartendarstellung von einem oder mehreren Flügen geben.\ Dafür soll der Einsatz eines Open Source Projektes geprüft werden.
+    \item Alle Messdaten müssen je Flug tabellarisch dargestellt werden.
+    \item Einige Messdaten müssen je Flug in zweidimensionalen Liniendiagrammen gegenüber Zeit/Höhe/Luftdruck dargestellt werden.
+    \item Es soll geprüft werden, ob mit überschaubarem Aufwand, thermodynamische Diagramme dargestellt werden können.
+\end{itemize}
+
+\subsection{Forschungsfragen}
+Aus Entwicklungssicht ergibt sich die konkrete Forschungsfrage:
+\enquote{Welche Vor- und Nachteile bietet der Einsatz eines Administration-Panels am konkreten Beispiel von Laravel Nova?}
+
+Aus dieser Kernfrage lassen sich weitere Forschungsfragen ableiten:
+\begin{itemize}
+    \item Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?
+    \item Welche Anforderungen der Sounding Console lassen sich durch das Nova besonders gut entwickeln?
+    \item Bei welchen Anforderungen entstehen Nachteile durch die Verwendung von Nova?
+    \item Lässt sich abschätzen, ob zukünftige Erweiterungen gut mit Nova umsetzbar sind?
+    \item Können am vorliegenden Beispiel Muster erkannt werden, welche Anforderungsbereiche betroffen sind, um auf Basis dessen zukünftige Projektentscheidungen zu treffen.
+    \item Wie flexibel ist der Technologie Stack und wie sehr wird man durch Nova eingeschränkt.
+\end{itemize}

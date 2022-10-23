@@ -106,7 +106,9 @@
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
 \begin{document}
-    \include{sections/deckblatt}
+    \include{sections/00_titlepage}
+
+    \include{sections/01_abstract}
 
     \newpage
     \renewcommand{\contentsname}{Inhaltsverzeichnis}
@@ -115,7 +117,11 @@
     \pagestyle{headings} % Kopf- und Fußzeilen aktivieren
     \pagenumbering{arabic} % Seitennummerierung: arabische Zahlen
 
-    \include{sections/einleitung}
+    \include{sections/10_introduction}
+    \include{sections/11_materials_and_methods}
+    \include{sections/12_results}
+    \include{sections/13_discussion}
+    \include{sections/14_conclusion_and_implications}
 
-    \include{sections/appendix}
+    \include{sections/90_appendix}
 \end{document}

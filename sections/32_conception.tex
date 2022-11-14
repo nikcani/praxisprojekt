@@ -24,8 +24,20 @@ Vergleiche d3 und google charts
 Polling anstatt sockets, weil keine wirkliche Echtzeit notwendig, alle 5 sekunden genügt und erzeugt vermutlich weniger last auf dem server als
 
 \subsubsection{Hosting}
+Im Angebotsumfang sind zwei Arten eines Hostings enthalten, daher sind beide umgesetzt und vorbereitet.
+
+\paragraph{Containerized}
+Die besten Skalierungsmöglichkeiten bieten containerbasierte Anwendungen, es wird der Industriestandard Docker verwendet.
+Auf Basis von Terraform, einem IaC (Infrastructure as Code) Tool, ist eine komplette Landschaft definiert.
+Nach der Anbindung eines Kubernetes Clusters kann, mit einem CLI Befehl, das Hosting einer Test- und einer Produktivumgebung erstellt werden und bei Bedarf verändert werden.
+Ebenfalls sind automatische Updates, durch das Bauen neuer Images und anschließende Rolling Updates, in der CI Pipeline bei GitLab implementiert.
 
 \paragraph{vServer}
+Ein klassischeres Hosting hat sich im Projektverlauf als unkomplizierter gezeigt.
+Ein vServer ist durch einen Entwickler selbst schnell und übersichtlich verwaltbar.
+Die Komplexität eines Clusters und der damit verbundene Overhead in der Administration entfällt.
+
+Außerdem gibt es keinen Overhead durch Container, man erhält die volle Leistung der gebuchten Ressourcen, dies spart langfristig Kosten.
 
 \subparagraph{Laravel Forge}
 Durch den Einsatz von Laravel bietet sich die Verwendung von \enquote{Laravel Forge}\cite{laravel-forge}, einem First Party Server Management Tool, an.
@@ -44,15 +56,14 @@ Zukünftig können folgende Features von Vorteil sein:
     \item Laravel Octane Support - neues Paradigma durch Stateful Server und dadurch schnellere Application Performance\cite{laravel-octane}
 \end{itemize}
 
-Als Hostinganbieter unterstützt Forge
+Als Hostinganbieter unterstützt Forge, DigitalOcean, Linode Cloud, AWS, Vultr und Hetzner Cloud.
 
 \subparagraph{Hetzner Cloud}
-- scaling
-- managed backups möglich
-- kein container overhead, volle Leistung der gebuchten Ressourcen
-- gut durch den entwickler selbst betreubar
-
-\paragraph{Containerized}
-based on docker and kubernetes, written in terraform
-- better scaling
-- IaC (Infrastructure as Code)
+Die Wahl auf die Hetzner Cloud als Hostingprovider fiel eindeutig durch mehrere Vorteile:
+\begin{itemize}
+    \item schnelles Up- und Downscaling möglich - von einer CPU mit 2 GB RAM hoch bis auf 16 CPUs und 32 GB RAM
+    \item automatisierte Backups des ganzen Servers für kleinen Aufpreis möglich
+    \item günstige Preise gegenüber den anderen Anbietern
+    \item Datenschutz durch Rechenzentren in Deutschland
+    \item örtliche Nähe des Rechenzentrums zu GRAW - beides in Nürnberg
+\end{itemize}

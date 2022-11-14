@@ -1,0 +1,36 @@
+\section{Grundlagen}
+
+\subsection{Marktrecherche}
+Der größere Konkurrent bietet für seine Kunden, die ganze Messnetzwerke betreuen, bereits eine Lösung an.
+Der sogenannte \enquote{Vaisala Observation Network Manager}\cite{observation-network-manager} bietet einen ähnlichen inhaltlichen Umfang.
+Die Implementierung basiert ebenfalls auf Webtechnologien und bestätigt damit in diesem Punkt den Ansatz von GRAW.
+
+\subsection{Methodik und Vorgehensmodelle}
+In kurzer Projektzeit wird ein umfangreicher und lauffähiger Prototyp bzw.\ ein MVP erstellt.
+Für eine langfristige Planung ist daher keine Zeit und so wird auf das Entwicklungsmodell XP (Extreme Programming) gesetzt.
+Dafür werden im Projektverlauf die bei XP üblichen fünf Werte und die 14 Prinzipien (Vergleiche~\cite{agile-prozesse}) berücksichtigt und auf das vorliegende Projekt angewendet.
+
+Im Anschluss an die Implementierung der Software wird, zusätzlich zu den praktischen Erfahrungswerten durch die Implementierung, eine Nutzwertanalyse durchgeführt.
+Methodisch wird sich dabei an einem Praxisleitfaden~\cite{scoring-und-nutzwertanalysen} orientiert.
+Ziel dieses Methodeneinsatzes ist es, das abschließende Fazit rationaler zu gestalten.
+Analyseinhalt ist ein kurzer Vergleich von Nova mit anderen populären Laravel Admin Panels (Vergleiche~\cite{the-guide-to-laravel-admin-panels}), die Auswahl und Gewichtung von Entscheidungskriterien sowie das daraus resultierende Scoring.
+
+\subsection{Technische Entwurfsmuster}
+
+\subsubsection{Model View Controller}
+TODO: beschreiben mit Quelle
+\newpage
+
+\subsection{Technische Frameworks}
+
+\subsubsection{Laravel}
+Laravel ist ein kostenloses und quelloffenes Framework für die Erstellung moderner PHP Anwendungen.
+Es bietet ein umfangreiches Toolset und eine umfangreiche Dokumentation, sowie ein großes Ecosystem weiterer Funktionsbibliotheken und passenden Services.
+In den letzten Jahren gewann es schnell an Popularität.
+(Vergleiche~\cite{what-is-laravel})
+
+\subsubsection{Laravel Nova}
+Um Entwickler dabei zu unterstützen, besonders effizient und einfach, Administrationsinterfaces für Laravel Anwendungen zu entwickeln, wurde ein kostenpflichtiges first-party Framework entwickelt und veröffentlicht (Vergleiche ~\cite{laravel-nova}).
+Oftmals haben Laravel Anwendungen eine öffentliche Website, eine API (Programmierschnittstelle) und einen Administrationsbereich für die Verwaltung der Daten (Vergleiche~\cite{laravel-up-and-running}).
+Mit Laravel selbst lässt sich sehr gut eine API abdecken, ebenso ist es für öffentliche Websites designt.
+Laravel Nova setzt also genau in dem Bereich an, den Entwickler in der Regel individuell aufbauen.

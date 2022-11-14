@@ -1,0 +1,14 @@
+\section{Reflektion}
+Die Kommunikation bezüglich der Anforderungen zwischen Auftraggeber und Entwickler verlief schnell und zielorientiert.
+Vor allem das daraus schnell verfügbare verschriftliche Leistungspaket ermöglichte eine stringente Implementierung.
+
+TODO: Entgegen ersten Plänen: sondehub-tracker kann zu viel nicht benötigtes, lieber direkt mit leaflet
+TODO: Entgegen ersten Plänen: thermodynamische Diagramme, insbedondere Skew-T sollten aus sondehub-tracker genutzt werden, eine einzelne js lib wurde gefunden und eingebunden, durch reverse engeneering der demo. Eine doku gibt es nicht.
+TODO: Entgegen ersten Plänen: classical hosting weil gut verständlich, schnell durch forge, stabil und günstig, außerdem sogar recht gut skalierbar durch hetzner cloud
+
+Die Kommunikation bezüglich der Schnittstellen zu GRAWMET verlief inhaltlich gut, durch sehr begrenzte Entwicklungsressourcen beim Auftraggeber allerdings eher langsam.
+Daher ist bisher nur die Anbindung für laufende Flüge, jedoch nicht der Import alter Flüge.
+Dieser wurde zeitlich nicht priorisiert und bleibt daher, aufgrund fehlender Informationen zu bestehenden Datenformaten, vorerst offen.
+
+Trotz guten und sehr konkreten Absprachen bezüglich der Bodenstationen, stellte sich erst im späteren Projektverlauf heraus, dass es auch bewegliche Bodenstationen gibt.
+Durch die Abwesenheit von Produktivdaten konnte jedoch schnell das Schema angepasst werden und eine 1:n-Beziehung, zu einer neuen Positionsressource, implementiert werden.

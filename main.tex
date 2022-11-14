@@ -106,23 +106,29 @@
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
+\titleformat{\paragraph}{\normalfont\Large\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
 \begin{document}
     \include{sections/00_titlepage}
-
     \include{sections/01_abstract}
 
     \newpage
     \renewcommand{\contentsname}{Inhaltsverzeichnis}
     \tableofcontents
+    \newpage
 
     \pagestyle{headings} % Kopf- und Fußzeilen aktivieren
     \pagenumbering{arabic} % Seitennummerierung: arabische Zahlen
 
     \include{sections/10_introduction}
-    \include{sections/11_materials_and_methods}
-    \include{sections/12_results}
-    \include{sections/13_discussion}
-    \include{sections/14_conclusion_and_implications}
+    \include{sections/20_foundation}
+    \include{sections/30_analyses_exploration_and_concept}
+    \include{sections/31_analyses}
+    \include{sections/32_conception}
+    \include{sections/40_implementation}
+    \include{sections/50_results_reflection_evaluation}
+    \include{sections/60_conclusion_and_prospects}
 
     \include{sections/90_appendix}
 \end{document}

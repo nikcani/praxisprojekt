@@ -1,0 +1,58 @@
+\section{Konzeption}
+Erfahrungswerte zeigen, dass die kritischsten Technologieentscheidungen im Bereich der Webtechnologien das Backend betrifft, vorausgesetzt, es gibt keine speziellen Anforderungen des Frontends die berücksichtigt werden müssen.
+Daher starten die Entscheidungen im Backend und anschließend wird das Frontend festgelegt.
+Auf Basis des Backends und des Frontends, sowie weiterer Projektanforderungen, wird ein passendes Hosting ausgewählt.
+
+\subsection{Backend}
+
+\paragraph{PHP}
+still the web standard, dev experience
+
+\paragraph{Laravel}
+\enquote{batteries included}, lots of packages like nova, large community, well documented, dev experience, current industry standard for modern php apps\cite{laravel-nova-docs}
+
+\paragraph{Datenbank}
+egal, hauptsache relational, standard und support durch laravel
+
+\subsubsection{Frontend}
+
+\paragraph{Chart.js}
+gute doku, umfangreich aber nicht zu umfangreich
+Vergleiche d3 und google charts
+
+\paragraph{Polling}
+Polling anstatt sockets, weil keine wirkliche Echtzeit notwendig, alle 5 sekunden genügt und erzeugt vermutlich weniger last auf dem server als
+
+\subsubsection{Hosting}
+
+\paragraph{vServer}
+
+\subparagraph{Laravel Forge}
+Durch den Einsatz von Laravel bietet sich die Verwendung von \enquote{Laravel Forge}\cite{laravel-forge}, einem First Party Server Management Tool, an.
+Im aktuellen Projekt ergaben sich durch die Nutzung von Forge vor allem folgende Vorteile:
+\begin{itemize}
+    \item ein moderner und robuster Hosting Stack wird automatisiert verwaltet
+    \item Push To Deploy ermöglicht schnelle Updates in Test- und Produktivsysteme
+    \item automatisiert eingebundene TLS Zertifikate mittels LetsEncrypt
+    \item Task Scheduling: Übersichtliche und schnelle Konfiguration durch Entwickler möglich
+    \item Log File Access: gesammelter Zugriff auf alle relevanten Logfiles inklusive \enquote{Log Tailing}
+\end{itemize}
+
+Zukünftig können folgende Features von Vorteil sein:
+\begin{itemize}
+    \item Automatisierte Datenbankbackups
+    \item Laravel Octane Support - neues Paradigma durch Stateful Server und dadurch schnellere Application Performance\cite{laravel-octane}
+\end{itemize}
+
+Als Hostinganbieter unterstützt Forge
+
+\subparagraph{Hetzner Cloud}
+- scaling
+- managed backups möglich
+- kein container overhead, volle Leistung der gebuchten Ressourcen
+- gut durch den entwickler selbst betreubar
+
+\paragraph{Containerized}
+based on docker and kubernetes, written in terraform
+- better scaling
+- IaC (Infrastructure as Code)

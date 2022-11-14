@@ -17,4 +17,5 @@ rm main.run.xml
 rm main.synctex.gz
 rm main.toc
 rm sections/*.aux
-say "done"
+say "latex compiled"
+exit

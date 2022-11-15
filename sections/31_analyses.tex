@@ -2,14 +2,14 @@
 
 \subsection{Problemraum und Anforderungen}
 Für den Empfang von Messdaten und die korrekte Startvorbereitung benötigt eine Radiosonde von GRAW auch immer eine Bodenstation.
-Auf Bodenstationen läuft unter Windows die Software \enquote{GRAWMET}\cite{grawmet}, welche die Daten der Sonde empfängt, weiterverarbeitet und auswertet.
-Um vergangene Flüge auszuwerten und zu überwachen ist daher immer der Zugang zum Bodenstationscomputer notwendig.
-Eine zentrale und einfache Auswertung mehrerer Stationen durch Nutzer an verschiedenen Orten mit verschiedenen Endgeräten ist aktuell kaum möglich.
+Auf Bodenstationen läuft unter Windows die Software \enquote{GRAWMET}\cite{grawmet}, welche die Messdaten der Sonde empfängt, weiterverarbeitet und auswertet.
+Um vergangene Flüge auszuwerten und zu überwachen, ist daher immer der Zugang zum Bodenstationscomputer notwendig.
+Eine zentrale und einfache Auswertung mehrerer Stationen, durch Nutzer an verschiedenen Orten, mit verschiedenen Endgeräten, ist aktuell kaum möglich.
 Es gibt für diese Anforderungen bereits eine experimentelle Anwendung \enquote{GRAWgo}\cite{grawgo}, welche aufgrund ihrer Architektur kein On-Premises Hosting unterstützt und nur auf Mobilgeräten lauffähig ist.
-GRAWgo hat es, vermutlich aufgrund seiner sehr eingeschränkten Nutzbarkeit, bisher nicht in einen produktiven Betrieb im Bereich von größeren Messnetzen geschafft und ist dafür auch aktuell nicht konzipiert.
+GRAWgo hat es, vermutlich aufgrund seiner sehr eingeschränkten Nutzbarkeit, bisher nicht in einen produktiven Betrieb, im Bereich von größeren Messnetzen, geschafft und ist dafür auch aktuell nicht konzipiert.
 
-Diese Probleme soll durch eine neue Architektur, bzw.\ eine ergänzende Software namens \enquote{Sounding Console}, gelöst werden.
-Der Zugang zu den erfassten Daten und Auswertungen soll vereinfacht werden und von verschiedenen Orten aus möglich sein.
+Diese Probleme sollen durch eine neue Architektur, bzw.\ eine ergänzende Software namens \enquote{Sounding Console}, gelöst werden.
+Der Zugang, zu den erfassten Daten und Auswertungen, soll vereinfacht werden und von verschiedenen Orten aus möglich sein.
 An dieser Problemstelle setzt die Sounding Console an und soll die sich daraus ergebenden Anforderungen erfüllen.
 
 Grundsätzlich wurden durch den Auftraggeber Anforderungen im Rahmen eines Lastenheftes (\ref{subsec:lastenheft}) kommuniziert, diese wurden teilweise, nach technischer Einordnung durch den Verfasser dieser Arbeit, angepasst und ergänzt.
@@ -17,7 +17,7 @@ Anschließend wurde durch die auftragnehmende Agentur ein Angebot (\ref{subsec:a
 Nach Auftragseingang wurden konkretere Anforderungen und daraus resultierende Aufgaben durch den Entwickler, im sogenannten Leistungspaket (\ref{subsec:leistungspaket}), festgelegt.
 Teilweise wurden in diesem Prozess offene Fragen mit dem Auftraggeber geklärt.
 
-Im folgenden sind die Anforderungen gelistet, die die neue Software erfüllen soll.
+Im Folgenden sind die Anforderungen gelistet, die die neue Software erfüllen soll.
 Eine ausführlichere Darstellung findet sich im Anhang dieser Arbeit.
 \newpage
 
@@ -45,25 +45,25 @@ Die technische Anforderungen werden von beiden Parteien gemeinsam festgelegt.
 Dabei werden die vorhandenen Kompetenzen und Erfahrungswerte, mit Programmiersprachen und Frameworks, seitens des Entwicklers berücksichtigt.
 Bei einigen Entscheidungen wird außerdem berücksichtigt, dass die Entwicklung mit möglichst geringen finanziellen Ressourcen erfolgen kann.
 \begin{itemize}
-    \item Die Software muss auf einer zentralen Instanz gehostet werden, dies muss sowohl auf zentralen Servern als auch On-Premises möglich sein.
+    \item Die Software muss auf einer zentralen Instanz gehostet werden. Dies muss sowohl auf zentralen Servern als auch On-Premises möglich sein.
     \begin{itemize}
         \item Es sollen aktuelle Standards wie Docker und Kubernetes verwendet werden.
     \end{itemize}
-    \item Die Sounding Console soll gegenüber GRAWgo eine bessere Zugänglichkeit und UX aufweisen, insbesondere die Nutzung an einem Desktop Computer soll ermöglicht werden.
+    \item Die Sounding Console soll gegenüber GRAWgo eine verbesserte Zugänglichkeit und UX aufweisen, insbesondere die Nutzung an einem Desktop Computer soll ermöglicht werden.
     \begin{itemize}
         \item Das System soll webbasiert umgesetzt und deployed werden.
-        \item Das Interface soll responsive auf verschiedene Endgerätegrößen reagieren.
+        \item Das Interface soll responsive auf verschiedene Bildschirmgrößen reagieren.
     \end{itemize}
-    \item Die Software soll durch die Verwendung moderner, bekannter sowie quelloffener Frameworks entwickelt werden.
+    \item Die Software soll durch die Verwendung moderner, bekannter, sowie quelloffener Frameworks entwickelt werden.
     \item Durch die Verwendung von Industriestandards soll eine externe Abhängigkeit gegenüber dem Auftragnehmer verhindert werden.
-    \item Die sprachliche Internationalisierung soll, durch die Erstellung und Einbindung neuer Sprachdateien effizient möglich sein.
+    \item Die sprachliche Internationalisierung soll, durch die Erstellung und Einbindung neuer Sprachdateien, effizient möglich sein.
     \item Das Projekt muss mittels git versioniert werden.
     \item Automatische Deployments sollen schnelle Updates der Test- und Produktivumgebung ermöglichen.
 \end{itemize}
 
 \subsection{Themenfeldanalyse}
 Die folgende visuelle Analyse (\ref{fig:themenfeldanalyse}) gibt einen besseren Überblick über das Themenfeld, welches sich aus der zentralen Projektfrage ableiten lässt.
-Außerdem werden übliche sowie grundsätzlich geeignete technische Frameworks betrachtet, die im Projektverlauf von Vorteil sind.
+Außerdem werden übliche, sowie grundsätzlich geeignete, technische Frameworks betrachtet, die im Projektverlauf von Vorteil sind.
 
 \newpage
 \begin{figure}[h!]

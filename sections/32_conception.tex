@@ -1,13 +1,13 @@
 \section{Konzeption}
-Erfahrungswerte zeigen, dass die kritischsten Technologieentscheidungen im Bereich der Webtechnologien das Backend betrifft, vorausgesetzt, es gibt keine speziellen Anforderungen des Frontends die berücksichtigt werden müssen.
+Erfahrungswerte zeigen, dass die kritischsten Technologieentscheidungen, im Bereich der Webtechnologien, das Backend betreffen, vorausgesetzt, es gibt keine speziellen Anforderungen des Frontends, die berücksichtigt werden müssen.
 Daher starten die Entscheidungen im Backend und anschließend wird das Frontend festgelegt.
 Auf Basis des Backends und des Frontends, sowie weiterer Projektanforderungen, wird ein passendes Hosting ausgewählt.
 
 \subsection{Backend}
 
 \subsubsection{PHP}
-Die Entscheidung für PHP als primäre Sprache im Backend fiel aus zwei Gründen.
-Zum einen ist PHP im Web nach wie vor etablierter Standard, zum anderen besteht die größte Erfahrung beim Hauptentwickler.
+Die Entscheidung für PHP, als primäre Sprache im Backend, fiel aus zwei Gründen.
+Zum einen ist PHP im Web nach wie vor ein etablierter Standard, zum anderen besteht die größte Erfahrung beim Hauptentwickler.
 
 \subsubsection{Laravel}
 Laravel ist der aktuelle Industriestandard für moderne PHP Anwendungen und dadurch die erste Wahl.
@@ -19,8 +19,9 @@ Weitere Argumente liegen in der großen Community, der guten Dokumentation und v
 \subsubsection{Relationale Datenbank}
 Die zu speichernden Daten lassen sich gut relational modellieren.
 Zudem unterstützt Laravel primär relationale Datenbanken.
-MariaDB selbst überzeugt durch Open Source und die kostenlose Nutzung.
-PostgreSQL wäre eine Alternative, für und gegen die es aktuell keine weiteren Abwägungen gibt.
+Das DBMS (Datenbank-Managementsystem) MariaDB überzeugt durch Open Source und die kostenlose Nutzbarkeit.
+PostgreSQL als DBMS wäre eine Alternative, für und gegen die es aktuell keine weiteren Abwägungen gibt.
+Die Entscheidung ist vorerst nicht kritisch für das Projekt selbst, da Datenbankanfragen nur durch einen ORM laufen, und dadurch vollständig abstrahiert sind.
 \newpage
 
 \subsection{Frontend}
@@ -34,24 +35,28 @@ Um die Umsetzung möglichst effizient zu gestalten, wird auf Chart.js gesetzt.
 
 \subsubsection{Polling}
 Entgegen ersten Überlegungen zum Projektstart, wurde sich im laufenden Projekt gegen WebSockets entschieden.
-Diese Entscheidung ist nicht final und wird möglicherweise in der Zukunft angepasst.
-Für die erste Implementierung zeigte sich, dass HTTP Polling ausreichend schnell ist, da keine wirkliche Echtzeit bei Updates der UI notwendig ist.
+Diese Entscheidung ist nicht final und wird möglicherweise in Zukunft angepasst.
+Für die erste Implementierung zeigte sich, dass HTTP Polling ausreichend schnell ist, da keine wirklichen Echtzeitupdates des UI (User Interface) notwendig sind.
 Von Vorteil ist die weniger komplexe und dadurch schnellere Implementierung, sowie eine vermutete Ressourcenschonung des Servers, da weniger Verbindungen offen gehalten werden müssen.
 
 \subsection{Hosting}
-Im Angebotsumfang sind zwei Arten eines Hostings enthalten, daher sind beide umgesetzt und vorbereitet.
+Im Angebotsumfang sind zwei Hostingvarianten enthalten, daher sind die nachfolgend beschriebenen Varianten umgesetzt und vorbereitet.
+Grundsätzlich ist beim Hosting zu beachten, dass dieses auch On Premises möglich ist, da bereits absehbar ist, dass einige Kunden dies verlangen werden
 
 \subsubsection{Containerized}
 Die besten Skalierungsmöglichkeiten bieten containerbasierte Anwendungen, es wird der Industriestandard Docker verwendet.
 Auf Basis von Terraform, einem IaC (Infrastructure as Code) Tool, ist eine komplette Landschaft definiert.
 Nach der Anbindung eines Kubernetes Clusters kann, mit einem CLI Befehl, das Hosting einer Test- und einer Produktivumgebung erstellt werden und bei Bedarf verändert werden.
 Ebenfalls sind automatische Updates, durch das Bauen neuer Images und anschließende Rolling Updates, in der CI Pipeline bei GitLab implementiert.
+
+Eine nützliche Vorarbeit für ein späteres On-Premise Hosting, ist die Entwicklung der Dockerimages.
+So kann mit wenig Zusatzaufwand, auch auf lokaler Infrastruktur ein Hosting umgesetzt werden.
 \newpage
 
 \subsubsection{vServer}
 Ein klassischeres Hosting hat sich im Projektverlauf als unkomplizierter gezeigt.
 Ein vServer ist durch einen Entwickler selbst schnell und übersichtlich verwaltbar.
-Die Komplexität eines Clusters und der damit verbundene Overhead in der Administration entfällt.
+Die Komplexität eines Clusters und der damit verbundene zusätzliche Administrationsaufwand entfällt.
 
 Außerdem gibt es keinen Overhead durch Container, man erhält die volle Leistung der gebuchten Ressourcen, dies spart langfristig Kosten.
 

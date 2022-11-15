@@ -5,41 +5,57 @@ Auf Basis des Backends und des Frontends, sowie weiterer Projektanforderungen, w
 
 \subsection{Backend}
 
-\paragraph{PHP}
-still the web standard, dev experience
+\subsubsection{PHP}
+Die Entscheidung für PHP als primäre Sprache im Backend fiel aus zwei Gründen.
+Zum einen ist PHP im Web nach wie vor etablierter Standard, zum anderen besteht die größte Erfahrung beim Hauptentwickler.
 
-\paragraph{Laravel}
-\enquote{batteries included}, lots of packages like nova, large community, well documented, dev experience, current industry standard for modern php apps\cite{laravel-nova-docs}
+\subsubsection{Laravel}
+Laravel ist der aktuelle Industriestandard für moderne PHP Anwendungen und dadurch die erste Wahl.
+Außerdem handelt es sich bei Laravel um ein sogenanntes \enquote{batteries included} Framework, es können also verschiedene fertige Komponenten verwendet werden.
+Dadurch kann schnell ein hoher Qualitätsstandard erreicht werden.
 
-\paragraph{Datenbank}
-egal, hauptsache relational, standard und support durch laravel
+Weitere Argumente liegen in der großen Community, der guten Dokumentation und vorhandene Projekterfahrung mit dem Framework, bei vergleichbaren Projekten.
 
-\subsubsection{Frontend}
+\subsubsection{Relationale Datenbank}
+Die zu speichernden Daten lassen sich gut relational modellieren.
+Zudem unterstützt Laravel primär relationale Datenbanken.
+MariaDB selbst überzeugt durch Open Source und die kostenlose Nutzung.
+PostgreSQL wäre eine Alternative, für und gegen die es aktuell keine weiteren Abwägungen gibt.
+\newpage
 
-\paragraph{Chart.js}
-gute doku, umfangreich aber nicht zu umfangreich
-Vergleiche d3 und google charts
+\subsection{Frontend}
 
-\paragraph{Polling}
-Polling anstatt sockets, weil keine wirkliche Echtzeit notwendig, alle 5 sekunden genügt und erzeugt vermutlich weniger last auf dem server als
+\subsubsection{Chart.js}
+Bisherige Projekterfahrungen seitens des Auftragnehmers zeigten Probleme mit \enquote{Google Charts}.
+Gute Erfahrungen wurden hingegen mit \enquote{Chart.js} gemacht.
+Die Library überzeugte in vergangen Projekten durch eine gute Dokumentation, genügend Funktionen für übliche Auswertungsarten und ein ansprechendes Design.
+Als umfangreichere Library, die mehr Kontrolle bietet, ist an dieser Stelle noch \enquote{D3.js} zu erwähnen.
+Um die Umsetzung möglichst effizient zu gestalten, wird auf Chart.js gesetzt.
 
-\subsubsection{Hosting}
+\subsubsection{Polling}
+Entgegen ersten Überlegungen zum Projektstart, wurde sich im laufenden Projekt gegen WebSockets entschieden.
+Diese Entscheidung ist nicht final und wird möglicherweise in der Zukunft angepasst.
+Für die erste Implementierung zeigte sich, dass HTTP Polling ausreichend schnell ist, da keine wirkliche Echtzeit bei Updates der UI notwendig ist.
+Von Vorteil ist die weniger komplexe und dadurch schnellere Implementierung, sowie eine vermutete Ressourcenschonung des Servers, da weniger Verbindungen offen gehalten werden müssen.
+
+\subsection{Hosting}
 Im Angebotsumfang sind zwei Arten eines Hostings enthalten, daher sind beide umgesetzt und vorbereitet.
 
-\paragraph{Containerized}
+\subsubsection{Containerized}
 Die besten Skalierungsmöglichkeiten bieten containerbasierte Anwendungen, es wird der Industriestandard Docker verwendet.
 Auf Basis von Terraform, einem IaC (Infrastructure as Code) Tool, ist eine komplette Landschaft definiert.
 Nach der Anbindung eines Kubernetes Clusters kann, mit einem CLI Befehl, das Hosting einer Test- und einer Produktivumgebung erstellt werden und bei Bedarf verändert werden.
 Ebenfalls sind automatische Updates, durch das Bauen neuer Images und anschließende Rolling Updates, in der CI Pipeline bei GitLab implementiert.
+\newpage
 
-\paragraph{vServer}
+\subsubsection{vServer}
 Ein klassischeres Hosting hat sich im Projektverlauf als unkomplizierter gezeigt.
 Ein vServer ist durch einen Entwickler selbst schnell und übersichtlich verwaltbar.
 Die Komplexität eines Clusters und der damit verbundene Overhead in der Administration entfällt.
 
 Außerdem gibt es keinen Overhead durch Container, man erhält die volle Leistung der gebuchten Ressourcen, dies spart langfristig Kosten.
 
-\subparagraph{Laravel Forge}
+\paragraph{Laravel Forge}
 Durch den Einsatz von Laravel bietet sich die Verwendung von \enquote{Laravel Forge}\cite{laravel-forge}, einem First Party Server Management Tool, an.
 Im aktuellen Projekt ergaben sich durch die Nutzung von Forge vor allem folgende Vorteile:
 \begin{itemize}
@@ -58,7 +74,7 @@ Zukünftig können folgende Features von Vorteil sein:
 
 Als Hostinganbieter unterstützt Forge, DigitalOcean, Linode Cloud, AWS, Vultr und Hetzner Cloud.
 
-\subparagraph{Hetzner Cloud}
+\paragraph{Hetzner Cloud}
 Die Wahl auf die Hetzner Cloud als Hostingprovider fiel eindeutig durch mehrere Vorteile:
 \begin{itemize}
     \item schnelles Up- und Downscaling möglich - von einer CPU mit 2 GB RAM hoch bis auf 16 CPUs und 32 GB RAM

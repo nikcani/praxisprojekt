@@ -1,0 +1,107 @@
+\newpage
+
+\subsection{Nutzwertanalyse einiger Laravel Admin Panels}
+
+\subsubsection{Entscheidungsproblem}
+Welches Laravel Admin Panel ist für das konkrete Projekt der Sounding Console am geeignetsten?
+
+\subsubsection{Entscheidungsalternativen}
+Die populärsten Lösungen werden auf Basis eines Artikels ausgewählt, in dem sich eine Alternative selbst mit Anderen vergleich (Siehe~\cite{the-guide-to-laravel-admin-panels}).
+Es ist davon auszugehen, dass ein Anbieter in diesem Bereich, die eigene Konkurrenz gut kennt.
+
+\subsubsection{Bestimmung der Entscheidungskriterien}
+Aus technischer Sicht ist die Anpassbarkeit der Software und die technische Flexibilität des gesamten Stacks.
+Außerdem ist ein flexibles Hosting eine klare Projektanforderung und muss daher beachtet werden.
+Es ergeben sich daher die Kriterien \enquote{Anpassbarkeit}, \enquote {Flexibilität Tech Stack} und \enquote{Hostingflexibilität}.
+
+Grundsätzlich sind, im betrieblichen Umfeld, die Entwicklungskosten primär ausschlaggebend für neue Projekte.
+Zusätzlich sind die laufenden Kosten, für die Wirtschaftlichkeit eines Produktes, entscheidend.
+Folgende Kriterien wurden aus betrieblicher Sicht herausgearbeitet: \enquote{Time To Production}, \enquote{Eignung Lizenzmodell}, \enquote{Lizenzkosten (MVP)} und \enquote{Lizenzkosten (Produktlebenszyklus)}.
+
+\subsubsection{Gewichtung der Entscheidungskriterien}
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|c|l|l|}
+            \hline
+            A & 20\% & Anpassbarkeit                      \\ \hline
+            B & 10\% & Flexibilität Tech Stack            \\ \hline
+            C & 20\% & Hostingflexibilität                \\ \hline
+            D & 20\% & Time To Production                 \\ \hline
+            E & 10\% & Eignung Lizenzmodell               \\ \hline
+            F & 10\% & Lizenzkosten (MVP)                 \\ \hline
+            G & 10\% & Lizenzkosten (Produktlebenszyklus) \\ \hline
+        \end{tabular}
+    \end{center}
+    \caption{Gewichtung der Entscheidungskriterien}
+    \label{tab:gewichtung-der-entscheidungskriterien}
+\end{table}
+
+\newpage
+
+\subsubsection{Bewertung der Entscheidungskriterien}
+Die Bewertung basiert auf Schätzungen eines Entwicklers nach Recherche der verglichenen Tools.
+In einem größeren Projekt sollten mehrere Personen Schätzungen durchführen, um die Qualität des Ergebnisses zu erhöhen.
+
+Es wird eine 10er-Skala bei der Bewertung je Kriterium angewendet, hohe Werte sind positiv definiert.
+Die Kriterien sind aus Platzgründen in der Tabelle nur in gekürzter Form benannt.
+
+\begin{table}[h]
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|l|c|c|c|c|c|c|c|}
+            \hline
+            &
+            & \textbf{\href{https://nova.laravel.com}{Laravel Nova}}
+            & \textbf{\href{https://filamentphp.com}{Filament}}
+            & \textbf{\href{https://backpackforlaravel.com}{Backpack}}
+            & \textbf{\href{https://voyager.devdojo.com}{Voyager}}
+            & \textbf{\href{https://quickadminpanel.com}{Quick Admin Panel}}
+            & \textbf{\href{https://forestadmin.com}{Forest Admin}}
+            \\ \hline
+            A & \textbf{Anpassbarkeit}         & 6  & 8  & 9  & 8  & 10 & 3 \\ \hline
+            B & \textbf{Tech Stack}            & 6  & 7  & 7  & 7  & 7  & 2 \\ \hline
+            C & \textbf{Hosting}               & 10 & 10 & 10 & 10 & 10 & 5 \\ \hline
+            D & \textbf{Time}                  & 9  & 9  & 9  & 8  & 5  & 8 \\ \hline
+            E & \textbf{Lizenzmodell}          & 10 & 10 & 10 & 10 & 10 & 1 \\ \hline
+            F & \textbf{€ MVP}                 & 8  & 10 & 8  & 10 & 9  & 5 \\ \hline
+            G & \textbf{€ Produktlebenszyklus} & 10 & 10 & 10 & 10 & 10 & 3 \\ \hline
+        \end{tabular}
+    }
+    \caption{Bewertung der Entscheidungskriterien}
+    \label{tab:bewertung-der-entscheidungskriterien}
+\end{table}
+
+\subsubsection{Nutzwertberechnung}
+B = Bewertung | G = Gewichtung | GB = Gewichtete Bewertung\\
+QAP = Quick Admin Panel
+
+\begin{table}[h]
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|r|c|c|r|c|c|r|c|c|r|c|c|r|c|c|r|c|c|}
+            \hline
+            & \multicolumn{3}{|c|}{\textbf{\href{https://nova.laravel.com}{Laravel Nova}}}
+            & \multicolumn{3}{|c|}{\textbf{\href{https://filamentphp.com}{Filament}}}
+            & \multicolumn{3}{|c|}{\textbf{\href{https://backpackforlaravel.com}{Backpack}}}
+            & \multicolumn{3}{|c|}{\textbf{\href{https://voyager.devdojo.com}{Voyager}}}
+            & \multicolumn{3}{|c|}{\textbf{\href{https://quickadminpanel.com}{QAP}}}
+            & \multicolumn{3}{|c|}{\textbf{\href{https://forestadmin.com}{Forest}}}
+            \\ \hline
+            - & B  & G    & GB  & B  & G    & GB  & B  & G    & GB  & B  & G    & GB  & B  & G    & GB  & B & G    & GB  \\ \hline\hline
+            A & 6  & 20\% & 1,2 & 8  & 20\% & 1,6 & 9  & 20\% & 1,8 & 8  & 20\% & 1,6 & 10 & 20\% & 2,0 & 3 & 20\% & 0,6 \\ \hline
+            B & 6  & 10\% & 0,6 & 7  & 10\% & 0,7 & 7  & 10\% & 0,7 & 7  & 10\% & 0,7 & 7  & 10\% & 0,7 & 2 & 10\% & 0,2 \\ \hline
+            C & 10 & 20\% & 2,0 & 10 & 20\% & 2,0 & 10 & 20\% & 2,0 & 10 & 20\% & 2,0 & 10 & 20\% & 2,0 & 5 & 20\% & 1,0 \\ \hline
+            D & 9  & 20\% & 0,9 & 9  & 20\% & 1,8 & 9  & 20\% & 1,8 & 8  & 20\% & 1,6 & 5  & 20\% & 1,0 & 8 & 20\% & 1,6 \\ \hline
+            E & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 1 & 10\% & 0,1 \\ \hline
+            F & 8  & 10\% & 0,8 & 10 & 10\% & 1,0 & 8  & 10\% & 0,8 & 10 & 10\% & 1,0 & 9  & 10\% & 0,9 & 5 & 10\% & 0,5 \\ \hline
+            G & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 10 & 10\% & 1,0 & 3 & 10\% & 0,3 \\ \hline
+            & \multicolumn{3}{|r|}{\textbf{7,5}}
+            & \multicolumn{3}{|r|}{\textbf{9,1}}
+            & \multicolumn{3}{|r|}{\textbf{9,1}}
+            & \multicolumn{3}{|r|}{\textbf{8,9}}
+            & \multicolumn{3}{|r|}{\textbf{8,6}}
+            & \multicolumn{3}{|r|}{\textbf{4,3}}
+            \\ \hline
+        \end{tabular}
+    }
+    \caption{Nutzwertberechnung}
+    \label{tab:nutzwertberechnung}
+\end{table}

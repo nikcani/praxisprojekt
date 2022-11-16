@@ -106,6 +106,8 @@
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
 
+\newcommand{\newlineparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
 \begin{document}
     \include{sections/00_titlepage}
     \include{sections/01_abstract}
@@ -121,8 +123,6 @@
     \include{sections/10_introduction}
     \include{sections/20_foundation}
     \include{sections/30_analyses_exploration_and_concept}
-    \include{sections/31_analyses}
-    \include{sections/32_conception}
     \include{sections/40_implementation}
     \include{sections/50_results_reflection_evaluation}
     \include{sections/60_conclusion_and_prospects}

@@ -30,13 +30,22 @@ Stationsadministratoren können für ihre verwalteten Stationen Nutzer erstellen
 \newlineparagraph{API}
 Für die Datenübertragung durch die native Anwendung GRAWMET wird eine RESTful (Representational State Transfer) HTTP Schnittstelle (\ref{fig:api}) bereitgestellt.
 Der Zugriff wird mittels Basic Authentication (siehe~\cite{rfc7235}) abgesichert, die Kommunikation darf daher nur über HTTPS erfolgen, da Secrets sonst unverschlüsselt übertragen werden.
-
 \begin{figure}[h!]
     \centering
     \caption{API}
     \label{fig:api}
     \includegraphics[scale=0.55]{assets/api}
 \end{figure}
+
+\newlineparagraph{Datenbankschema}
+Für die zu speichernden Daten ist das folgende Schema (\ref{fig:db}) modelliert und, durch Laravel Migrations (siehe~\cite{laravel/migrations}), in Programmcode festgeschrieben.
+\begin{figure}[h!]
+    \centering
+    \caption{Datenbankschema}
+    \label{fig:db}
+    \includegraphics[scale=0.33,angle=90]{assets/db}
+\end{figure}
+
 \newpage
 
 \subsubsection{Probleme und Lösungen}

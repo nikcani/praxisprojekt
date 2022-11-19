@@ -2,27 +2,29 @@
 
 \subsection{Beantwortung der Projektfragen}
 
-\textbf{\enquote{Welche Vor- und Nachteile bietet der Einsatz eines Admin-Panel Frameworks, am konkreten Beispiel von Laravel Nova?}}\\
-Die Aussage von Elson Tan \enquote{Great to get started, hard to customise later on}(\cite{laravel-nova-in-production-one-year-later}) fasst die Problematik gut zusammen.
-Laravel Nova ermöglicht insbesondere Aufgaben im Bereich der Datenverwaltung sehr effizient.
+\textbf{\enquote{Welche Vor- und Nachteile bietet der Einsatz eines Admin-Panel Frameworks, am konkreten Beispiel von Nova?}}\\
+Die Aussage von Elson Tan \enquote{Great to get started, hard to customise later on}\cite{laravel-nova-in-production-one-year-later} fasst die Problematik gut zusammen.
+Nova ermöglicht insbesondere Aufgaben im Bereich der Datenverwaltung sehr effizient.
 Individuelle Anforderungen umzusetzen, benötigt allerdings verhältnismäßig viel Zeit.
 
-\textbf{\enquote{Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen, oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?}}\\
-Ja, für die Erprobung eines MVP ist Nova im Fall der Sounding Console gut geeignet, allerdings werden zukünftige Anforderungen zeigen, ob eine komplett individuelle, und damit auch besser anpassbare, Lösung der bessere Weg ist.
+\textbf{\enquote{Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?}}\\
+Ja, für die Erprobung eines MVP ist Nova im Fall der Sounding Console gut geeignet.
+Allerdings werden zukünftige Anforderungen zeigen, ob eine komplett individuelle und damit auch besser anpassbare Lösung der bessere Weg ist.
 
 \textbf{\enquote{Welche Anforderungen der Sounding Console lassen sich durch Nova besonders gut entwickeln?}}\\
-Datenverwaltung und einfache Metriken.
+Insbesondere die Datenverwaltung und Metriken sind durch Nova effizient umsetzbar.
 
 \textbf{\enquote{Bei welchen Anforderungen entstehen Nachteile durch die Verwendung von Nova?}}\\
-Individuelle UX und UI Anforderungen bringen Nova an die Grenzen des Machbaren.
+Individuelle UX und UI Anforderungen bringen Nova aufgrund der eingeschränkten Individualisierbarkeit an die Grenzen des Machbaren.
 
 \textbf{\enquote{Lässt sich abschätzen, ob zukünftige Erweiterungen gut mit Nova umsetzbar sind?}}\\
-Grundsätzlich können noch einige Erweiterungen sinnvoll mit Nova gebaut werden, allerdings wird die Software vermutlich mit wachsenden Funktionen irgendwann schlechter benutzbar, da der Spielraum für UI-Anpassungen stark begrenzt ist.
+Grundsätzlich können noch einige Erweiterungen sinnvoll mit Nova gebaut werden.
+Allerdings wird die Software mit wachsenden Funktionen irgendwann schlechter nutzbar, da der Spielraum für UI-Anpassungen stark eingeschränkt ist.
 
 \textbf{\enquote{Können am vorliegenden Beispiel Muster erkannt werden, welche Anforderungsbereiche betroffen sind, um auf Basis dessen zukünftige Projektentscheidungen zu treffen?}}\\
-Ja, sobald ein Projekt größer oder individueller ist, sollte eine offenere Architektur gewählt werden.
+Ja, sobald ein Projekt größer oder individueller ist, sollte eine besser anpassbare Architektur gewählt werden.
 
-\textbf{\enquote{Wie flexibel ist der Technologie Stack und wie sehr wird man durch Nova eingeschränkt?}}\\
+\textbf{\enquote{Wie flexibel ist der Technologie Stack und wie sehr schränkt Nova ein?}}\\
 Der Technologie Stack ist eingeschränkt, ebenso sind es Entwickler bei der Wahl der Lösungen, vor allem im Frontend.
 Die individuellen Komponenten ermöglichen viel, sobald es aber um den generellen Aufbau des Systems und um ganze Seitenlayouts geht, stößt Nova an Grenzen.
 
@@ -31,23 +33,23 @@ Die Verwendung von Nova war in diesem Praxisprojekt insgesamt von Vorteil.
 Die Architektur ist im Backend flexibel und könnte durch ein neues Frontend ergänzt werden.
 Dabei könnten auch die individuellen Komponenten wiederverwendet werden und die Struktur der aktuellen Anwendung grundsätzlich nachgebaut werden.
 
-Das Ergebnis der Arbeit ist nicht wirklich überraschend.
-Frameworks, insbesondere opinionated Frameworks wie Nova, bieten viel und schränken dadurch auch ein.
-Dessen sollte man sich bewusst sein und dies im technischen Entscheidungsprozess berücksichtigen.
+Das Ergebnis der Umsetzung überrascht wenig:
+Frameworks, insbesondere opinionated Frameworks wie Nova, bieten viel und schränken dadurch gleichzeitig ein.
+Dies gilt es, im technischen Entscheidungsprozess festzuhalten und zu berücksichtigen.
 
-Durch die Nutzwertanalyse konnte erarbeitet werden, dass es weitere gute Alternativen zu Laravel Nova gibt.
-Diese könnten sogar besser geeignet sein, dies basiert allerdings auf geschätzten Werten.
-Zu Projektbeginn wurde die Anpassbarkeit von Nova besser eingeschätzt, als sie sich im Verlauf gezeigt hat.
-Möglicherweise liegt derselbe Bias, der Nutzwertanalyse zugrunde und die besser eingeordneten Frameworks, weisen beim praktischen Einsatz ähnliche Probleme auf.
+Durch die Nutzwertanalyse konnte erarbeitet werden, dass es weitere gute Alternativen zu Nova gibt.
+Diese könnten besser geeignet sein, jedoch liegen hier bisher geschätzte Werte zugrunde.
+Zu Projektbeginn wurde die Anpassbarkeit von Nova besser beurteilt, als sie sich im Verlauf gezeigt hat.
+Selbiges könnte auch für die besser eingeordneten Frameworks gelten.
 
 \subsection{Ausblick}
 Die entwickelte Software soll zeitnah bei Messnetzwerken in den produktiven Betrieb gehen.
-Zuvor werden noch einige interne manuelle Tests durchgeführt und verschiedene Optimierungen an der Software umgesetzt.
-Erste potenzielle Baustellen für Optimierungen wurden bereits durch Testläufe entdeckt.
+Zuvor werden noch einige interne manuelle Tests durchgeführt und einzelne Optimierungen an der Software umgesetzt.
+Ansatzpunkte hierfür wurden bei Testläufen identifiziert.
 
-Zusätzlich sollen realistische Lasttests entwickelt werden, um die Performance der Software bereits vor dem echten Betrieb zu testen.
+Zusätzlich sollen realistische Lasttests entwickelt werden, um die Performance der Software vor dem echten Betrieb zu testen.
 Dadurch wird sich auch zeigen, welche Leistung das Hosting zu Spitzenzeiten abdecken können muss.
 
-Ebenso soll die umgesetzte Architektur geprüft werden und gegebenenfalls vor der Markteinführung überarbeitet werden, sofern eine Analyse dafür Notwendigkeiten zeigt.
-Dieser Arbeitsschritt soll möglicherweise im Rahmen einer, auf diesem Praxisprojekt aufbauenden, Bachelorarbeit stattfinden.
-Da konkret filament und Backpack langfristig geeigneter scheinen als Nova, wird ein Vergleich angestrebt, um für die Sounding Console eine bestmögliche Architektur zu finden.
+Vor allem soll die umgesetzte Architektur geprüft werden und gegebenenfalls vor der Markteinführung überarbeitet werden, sofern sich auf Basis einer noch durchzuführenden Analyse die Notwendigkeit hierfür ergibt.
+Dieser Arbeitsschritt soll voraussichtlich im Rahmen einer, auf diesem Praxisprojekt aufbauenden, Bachelorarbeit stattfinden.
+Da konkret filament und Backpack langfristig geeigneter erscheinen als Nova, wird weiterhin ein Vergleich angestrebt, um für die Sounding Console eine bestmögliche Architektur zu finden.

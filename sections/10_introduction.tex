@@ -1,29 +1,34 @@
 \section{Einleitung}
 
 \subsection{Motivation und Vorgehensweise}
-Das Praxisprojekt findet in enger Kooperation mit der Digitalagentur \enquote{Kiwis \& Brownies - Christian Kiewaldt \& Benjamin Braun GbR}\cite{kiwis}, sowie dem Auftraggeber des Projektes, der \enquote{GRAW Radiosondes GmbH \& Co. KG}\cite{graw}, statt.
+Das Praxisprojekt fand in Kooperation mit der Digitalagentur \enquote{Kiwis \& Brownies - Christian Kiewaldt \& Benjamin Braun GbR}\cite{kiwis} und dem Auftraggeber des Projektes der \enquote{GRAW Radiosondes GmbH \& Co. KG}\cite{graw} statt.
+Der Verfasser dieser Arbeit übernahm alle Projektarbeiten seitens des Auftragnehmers.
 
-GRAW Radiosondes stellt meteorologische Messinstrumente her, vor allem Radiosonden, die getragen von einem Wetterballon, bis in Höhen der Stratosphäre aufsteigen und während des Fluges verschiedene Messdaten sammeln.
+GRAW Radiosondes stellt verschiedene meteorologische Messinstrumente her.
+Dazu zählen insbesondere Radiosonden.
+Diese steigen, getragen von einem Wetterballon, bis in die Höhe der Stratosphäre auf und sammeln während ihres Fluges verschiedene Messdaten.
 Das Ziel dieser Arbeit, seitens GRAW, ist die Erprobung und Entwicklung einer Managementsoftware, mit deren Hilfe Stationen, deren Flüge und wiederum deren Messdaten, archiviert, verwaltet und ausgewertet werden können.
 
-Bisherige individuelle Projekte des Auftragnehmers Kiwis \& Brownies zeigten, laut Gesprächen mit Management und Entwicklern, einen anfänglich großen und repetitiven Aufwand bei der Erstellung individueller Verwaltungssoftware auf.
+Bisherige Projekterfahrungen des Managements und der Entwicklungsabteilung seitens Kiwis \& Brownies zeigen, dass üblicherweise ein anfänglich großer und repetitiver Aufwand bei der Erstellung individueller Verwaltungssoftware anfällt.
 Fast alle Projekte benötigen einen Login, die Verwaltung von Entitäten in einem sogenannten \enquote{CRUD}\cite{crud} Interface, verschiedene Auswertungen, sowie spezielle Abläufe für eine oder mehrere Entitäten.
 
-Diese Praxisprojektarbeit soll einen ersten lauffähigen, sowie produktiv nutzbaren Prototypen der Software entwerfen und implementieren.
-Um den Umfang der Software möglichst effizient umzusetzen, soll der Einsatz eines unterstützenden Frameworks erprobt werden, welches das Grundgerüst stellt und wiederkehrende Funktionen schneller konfigurierbar macht und insgesamt auch für eine einheitliche Software sorgt.
-Dabei ist zu prüfen, an welchen Stellen das zu erprobende Framework \enquote{Laravel Nova}\cite{laravel-nova} bei der Erstellung der Software hilfreich ist und welche Einschränkungen sich durch die Verwendung ergeben.
+Im Rahmen der Praxisprojektarbeit soll ein ersten lauffähiger, sowie produktiv nutzbarer Prototyp der Software entworfen und implementiert werden.
+Das Projekt bzw.\ die Software trägt den Namen \enquote{Sounding Console}.
+Um den Umfang der Software möglichst effizient umzusetzen, sollte der Einsatz eines unterstützenden Frameworks erprobt werden, welches das Grundgerüst stellt und wiederkehrende Funktionen schneller konfigurierbar macht.
+Dabei ist zu prüfen, an welchen Stellen das zu erprobende Framework \enquote{Nova} (Laravel Nova~\cite{laravel-nova}) bei der Erstellung der Software hilfreich ist und welche Einschränkungen sich durch dessen Einsatz ergeben.
+
 \newpage
 
 \subsection{Projektfragen}
-Aus Entwicklungssicht ergibt sich die konkrete Frage:
-\enquote{Welche Vor- und Nachteile bietet der Einsatz eines Admin-Panel Frameworks, am konkreten Beispiel von Laravel Nova?}
+Aus Entwicklungssicht stellt sich die konkrete Frage:
+\enquote{Welche Vor- und Nachteile bietet der Einsatz eines Admin-Panel Frameworks, am konkreten Beispiel von Nova?}
 
 Auf Basis dieser Kernfrage lassen sich weitere Fragen für das Projekt ableiten:
 \begin{itemize}
-    \item Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen, oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?
+    \item Lässt sich die Sounding Console grundsätzlich mit Nova umsetzen oder gibt es zu starke Einschränkungen bei der Umsetzung der Anforderungen?
     \item Welche Anforderungen der Sounding Console lassen sich durch Nova besonders gut entwickeln?
     \item Bei welchen Anforderungen entstehen Nachteile durch die Verwendung von Nova?
     \item Lässt sich abschätzen, ob zukünftige Erweiterungen gut mit Nova umsetzbar sind?
     \item Können am vorliegenden Beispiel Muster erkannt werden, welche Anforderungsbereiche betroffen sind, um auf Basis dessen zukünftige Projektentscheidungen zu treffen?
-    \item Wie flexibel ist der Technologie Stack und wie sehr wird man durch Nova eingeschränkt?
+    \item Wie flexibel ist der Technologie Stack und wie sehr schränkt Nova ein?
 \end{itemize}

@@ -1,27 +1,29 @@
 \section{Konzeption}
-Erfahrungswerte zeigen, dass die kritischsten Technologieentscheidungen, im Bereich der Webtechnologien, das Backend betreffen, vorausgesetzt, es gibt keine speziellen Anforderungen des Frontends, die berücksichtigt werden müssen.
+Erfahrungswerte zeigen, dass die kritischsten Technologieentscheidungen, im Bereich der Webtechnologien, das Backend betreffen;
+vorausgesetzt, es gibt keine speziellen Anforderungen des Frontends, die berücksichtigt werden müssen.
 Daher starten die Entscheidungen im Backend und anschließend wird das Frontend festgelegt.
 Auf Basis des Backends und des Frontends, sowie weiterer Projektanforderungen, wird ein passendes Hosting ausgewählt.
 
 \subsection{Backend}
 
 \subsubsection{PHP}
-Die Entscheidung für PHP, als primäre Sprache im Backend, fiel aus zwei Gründen.
-Zum einen ist PHP im Web nach wie vor ein etablierter Standard, zum anderen besteht die größte Erfahrung beim Hauptentwickler.
+Die Entscheidung für PHP, als primäre Sprache im Backend, fiel aus zwei Gründen:
+Zum einen ist PHP im Web nach wie vor ein etablierter Standard, zum anderen verfügt der hauptsächlich tätige Entwickler über große Erfahrung damit.
 
 \subsubsection{Laravel}
 Laravel ist der aktuelle Industriestandard für moderne PHP Anwendungen und dadurch die erste Wahl.
-Außerdem handelt es sich bei Laravel um ein sogenanntes \enquote{batteries included} Framework, es können also verschiedene fertige Komponenten verwendet werden.
-Dadurch kann schnell ein hoher Qualitätsstandard erreicht werden.
+Außerdem handelt es sich bei Laravel um ein sogenanntes \enquote{batteries included} Framework.
+Es können daher verschiedene fertige Komponenten verwendet werden, wodurch schnell ein hoher Qualitätsstandard erreicht werden kann.
 
-Weitere Argumente liegen in der großen Community, der guten Dokumentation und vorhandene Projekterfahrung mit dem Framework, bei vergleichbaren Projekten.
+Weitere Argumente liegen in der großen Community, der guten Dokumentation und der vorhandenen Projekterfahrung mit dem Framework bei vergleichbaren Projekten.
 
 \subsubsection{Relationale Datenbank}
 Die zu speichernden Daten lassen sich gut relational modellieren.
 Zudem unterstützt Laravel primär relationale Datenbanken.
 Das DBMS (Datenbank-Managementsystem) MariaDB überzeugt durch Open Source und die kostenlose Nutzbarkeit.
-PostgreSQL als DBMS wäre eine Alternative, für und gegen die es aktuell keine weiteren Abwägungen gibt.
-Die Entscheidung ist vorerst nicht kritisch für das Projekt selbst, da Datenbankanfragen nur durch einen ORM laufen, und dadurch vollständig abstrahiert sind.
+
+PostgreSQL wurde als mögliche Alternative nicht näher betrachtet.
+Die Entscheidung ist vorerst nicht kritisch für das Projekt, da Datenbankanfragen nur durch einen ORM laufen und dadurch vollständig abstrahiert sind.
 \newpage
 
 \subsection{Frontend}
@@ -30,26 +32,26 @@ Die Entscheidung ist vorerst nicht kritisch für das Projekt selbst, da Datenban
 Bisherige Projekterfahrungen seitens des Auftragnehmers zeigten Probleme mit \enquote{Google Charts}.
 Gute Erfahrungen wurden hingegen mit \enquote{Chart.js} gemacht.
 Die Library überzeugte in vergangen Projekten durch eine gute Dokumentation, genügend Funktionen für übliche Auswertungsarten und ein ansprechendes Design.
-Als umfangreichere Library, die mehr Kontrolle bietet, ist an dieser Stelle noch \enquote{D3.js} zu erwähnen.
-Um die Umsetzung möglichst effizient zu gestalten, wird auf Chart.js gesetzt.
+Als umfangreichere Library, die noch weitere Features bietet, ist an dieser Stelle noch \enquote{D3.js} zu erwähnen.
+Um die vorhandenen Erfahrungen zu nutzen und so die Umsetzung möglichst effizient zu gestalten, wird auf Chart.js gesetzt.
 
 \subsubsection{Polling}
 Entgegen ersten Überlegungen zum Projektstart, wurde sich im laufenden Projekt gegen WebSockets entschieden.
 Diese Entscheidung ist nicht final und wird möglicherweise in Zukunft angepasst.
 Für die erste Implementierung zeigte sich, dass HTTP Polling ausreichend schnell ist, da keine wirklichen Echtzeitupdates des UI (User Interface) notwendig sind.
-Von Vorteil ist die weniger komplexe und dadurch schnellere Implementierung, sowie eine vermutete Ressourcenschonung des Servers, da weniger Verbindungen offen gehalten werden müssen.
+Von Vorteil ist die weniger komplexe und dadurch schnellere Implementierung sowie die Ressourcenschonung des Servers, da weniger Verbindungen offen gehalten werden müssen.
 
 \subsection{Hosting}
-Im Angebotsumfang sind zwei Hostingvarianten enthalten, daher sind die nachfolgend beschriebenen Varianten umgesetzt und vorbereitet.
-Grundsätzlich ist beim Hosting zu beachten, dass dieses auch On Premises möglich ist, da bereits absehbar ist, dass einige Kunden dies verlangen werden
+Unterschiedliche Nutzungsanforderungen ergeben zwei unterschiedliche Hostingvarianten, daher sind beide nachfolgend beschriebenen Varianten vorbereitet und implementiert.
+Grundsätzlich ist beim Hosting zu beachten, dass dieses auch On Premises möglich ist, da bereits absehbar ist, dass einige Kunden dies verlangen werden.
 
 \subsubsection{Containerized}
 Die besten Skalierungsmöglichkeiten bieten containerbasierte Anwendungen, es wird der Industriestandard Docker verwendet.
 Auf Basis von Terraform, einem IaC (Infrastructure as Code) Tool, ist eine komplette Landschaft definiert.
-Nach der Anbindung eines Kubernetes Clusters kann, mit einem CLI Befehl, das Hosting einer Test- und einer Produktivumgebung erstellt werden und bei Bedarf verändert werden.
+Nach der Anbindung eines Kubernetes Clusters kann das Hosting einer Test- und einer Produktivumgebung mit einem CLI Befehl erstellt und bei Bedarf verändert werden.
 Ebenfalls sind automatische Updates, durch das Bauen neuer Images und anschließende Rolling Updates, in der CI Pipeline bei GitLab implementiert.
 
-Eine nützliche Vorarbeit für ein späteres On-Premise Hosting, ist die Entwicklung der Dockerimages.
+Eine nützliche Vorarbeit für ein späteres On-Premise Hosting ist die Entwicklung der Dockerimages.
 So kann mit wenig Zusatzaufwand, auch auf lokaler Infrastruktur ein Hosting umgesetzt werden.
 \newpage
 
@@ -58,33 +60,30 @@ Ein klassischeres Hosting hat sich im Projektverlauf als unkomplizierter gezeigt
 Ein vServer ist durch einen Entwickler selbst schnell und übersichtlich verwaltbar.
 Die Komplexität eines Clusters und der damit verbundene zusätzliche Administrationsaufwand entfällt.
 
-Außerdem gibt es keinen Overhead durch Container, man erhält die volle Leistung der gebuchten Ressourcen, dies spart langfristig Kosten.
+Außerdem gibt es keinen Overhead durch Container, die volle Leistung der gebuchten Ressourcen ist verfügbar, wodurch langfristig Kosten gespart werden
 
-\newlineparagraph{Laravel Forge}
-Durch den Einsatz von Laravel bietet sich die Verwendung von \enquote{Laravel Forge}\cite{laravel-forge}, einem First Party Server Management Tool, an.
-Im aktuellen Projekt ergaben sich durch die Nutzung von Forge vor allem folgende Vorteile:
+\newlineparagraph{Forge}
+Durch den Einsatz von Laravel bietet sich die Verwendung von \enquote{Forge} (Laravel Forge~\cite{laravel-forge}), einem First Party Server Management Tool, an.
+Im aktuellen Projekt ergeben sich durch die Nutzung von Forge vor allem folgende Vorteile:
 \begin{itemize}
-    \item ein moderner und robuster Hosting Stack wird automatisiert verwaltet
-    \item Push To Deploy ermöglicht schnelle Updates in Test- und Produktivsysteme
-    \item automatisiert eingebundene TLS Zertifikate mittels LetsEncrypt
-    \item Task Scheduling: Übersichtliche und schnelle Konfiguration durch Entwickler möglich
-    \item Log File Access: gesammelter Zugriff auf alle relevanten Logfiles inklusive \enquote{Log Tailing}
+    \item Ein moderner und robuster Hosting Stack wird automatisiert verwaltet.
+    \item Push To Deploy ermöglicht schnelle Updates in Test- und Produktivsystemen.
+    \item Es werden automatisiert TLS Zertifikate mittels LetsEncrypt signiert und installiert.
+    \item Scheduled Tasks können übersichtlich und schnell konfiguriert werden.
+    \item Der gesammelten Zugriff auf relevante Logfiles sowie \enquote{Log Tailing} ist möglich.
 \end{itemize}
 
-Zukünftig können folgende Features von Vorteil sein:
-\begin{itemize}
-    \item Automatisierte Datenbankbackups
-    \item Laravel Octane Support - neues Paradigma durch Stateful Server und dadurch schnellere Application Performance\cite{laravel-octane}
-\end{itemize}
+Zukünftig können weitere Features von Vorteil sein, konkret vor allem automatisierte Datenbankbackups und Laravel Octane Support.
+Letzteres ist ein völlig neues Paradigma und ermöglicht durch Stateful Server und dadurch schnellere Application Performance\cite{laravel-octane}
 
 Forge unterstützt die Hostinganbieter DigitalOcean, Linode Cloud, AWS, Vultr und Hetzner Cloud.
 
 \newlineparagraph{Hetzner Cloud}
-Die Wahl auf die Hetzner Cloud als Hostingprovider fiel eindeutig durch mehrere Vorteile:
+Die Wahl der Hetzner Cloud als Hostinglösung bietet eindeutig mehrere Vorteile:
 \begin{itemize}
-    \item schnelles Up- und Downscaling möglich - von einer CPU mit 2 GB RAM hoch bis auf 16 CPUs und 32 GB RAM
-    \item automatisierte Backups des ganzen Servers für kleinen Aufpreis möglich
-    \item günstige Preise gegenüber den anderen Anbietern
-    \item Guter Datenschutz und Rechtssicherheit durch Rechenzentren in Deutschland
-    \item örtliche Nähe des Rechenzentrums zu GRAW - beides in Nürnberg
+    \item Es ist schnelles Up- und Downscaling möglich: von einer CPU mit 2 GB RAM hoch bis auf 16 CPUs und 32 GB RAM.
+    \item Automatisierte Backups des ganzen Servers sind gegen einen kleinen Aufpreis möglich.
+    \item Gegenüber anderen Anbietern sind die Preise niedrig.
+    \item Aufgrund der Rechenzentren in Deutschland sind hohe Standards in Sachen Datenschutz und Rechtssicherheit gewährleistet.
+    \item Mit dem Standort Nürnberg besteht eine örtliche Nähe des Rechenzentrums zur Niederlassung von GRAW.
 \end{itemize}

@@ -1,7 +1,6 @@
 \subsection{Technische Umsetzung}
 
 \subsubsection{Beschreibung der entwickelten Software}
-
 Die Anwendung ist durch einen Login geschützt und das visuelle Interface responsive umgesetzt.
 Die meiste Nutzung wird am Desktop stattfinden, daher ist die UI auch hauptsächlich darauf ausgelegt.
 Das Design wird durch Nova vorgegeben und ist modern.
@@ -29,7 +28,8 @@ Stationsadministratoren können für ihre verwalteten Stationen Nutzer erstellen
 \newpage
 
 \newlineparagraph{API}
-Für die native Anwendung wird eine REST Schnittstelle (\ref{fig:api}) bereitgestellt.
+Für die Datenübertragung durch die native Anwendung GRAWMET wird eine RESTful (Representational State Transfer) HTTP Schnittstelle (\ref{fig:api}) bereitgestellt.
+Der Zugriff wird mittels Basic Authentication (siehe~\cite{rfc7235}) abgesichert, die Kommunikation darf daher nur über HTTPS erfolgen, da Secrets sonst unverschlüsselt übertragen werden.
 
 \begin{figure}[h!]
     \centering
@@ -40,8 +40,6 @@ Für die native Anwendung wird eine REST Schnittstelle (\ref{fig:api}) bereitges
 \newpage
 
 \subsubsection{Probleme und Lösungen}
-
-
 
 \newlineparagraph{Thermodynamische Diagramme}
 Im Projekt sondehub-tracker (\cite{sondehub-tracker}) gibt es ein fertiges Skew-T Diagramm.

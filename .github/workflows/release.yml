@@ -15,7 +15,7 @@ jobs:
         run: echo "::set-output name=date::$(date -u)"
 
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
 
       - name: Install TeX
         run: sudo apt install texlive-latex-recommended texlive-latex-extra texlive-bibtex-extra texlive-lang-german inkscape biber python3-pygments
